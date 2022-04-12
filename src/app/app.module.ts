@@ -1,0 +1,51 @@
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { environment } from './../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { UsersDataSource, UsersDataSourceImpl } from './features/users/data/datasources/user.data-source';
+import { UsersRepositoryImpl } from './features/users/data/repositories/users.repository.impl';
+import { CUSTOM_ELEMENTS_SCHEMA, Injector, NgModule } from '@angular/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { NgxsModule } from '@ngxs/store';
+import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
+import { CoreModule } from './core/core.module';
+import { appRoutes } from './app.routing';
+import { AppComponent } from './app.component';
+import { UsersRepository } from './features/users/domain/repositories/users.repository';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes, { useHash: true }),
+    CoreModule,
+    TranslateModule.forRoot(),
+    NgxsModule.forRoot([]),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    AngularFirestoreModule
+  ],
+  providers: [
+    {
+      provide: MAT_DATE_LOCALE, useValue: 'pt-BR'
+    },
+    { provide: UsersRepository, useClass: UsersRepositoryImpl },
+    { provide: UsersDataSource, useClass: UsersDataSourceImpl }
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+  static injector: Injector;
+
+  constructor(injector: Injector) {
+    AppModule.injector = injector;
+  }
+}
