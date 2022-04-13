@@ -1,12 +1,12 @@
-<div class="main-panel w-full">
+<div class="main-panel">
   <div class="content-fluid">
     <div class="row">
       <div class="col-lg-12 grid-margin wrapper-card">
-        <div class="card atras">
+        <div class="card">
           <div class="card-body">
             <h4 class="card-title">Motoristas</h4>
             <div class="table-responsive">
-              <table class="table table-striped frente">
+              <table class="table table-striped">
                 <thead>
                   <tr>
                     <th>
@@ -25,13 +25,13 @@
                       E-mail
                     </th>
                     <th>
-                      Celular
-                    </th>
-                    <th>
                       Estado
                     </th>
                     <th>
-                      Indicação
+                      Celular
+                    </th>
+                    <th>
+                      Status
                     </th>
                   </tr>
                 </thead>
@@ -53,12 +53,19 @@
                       {{item.email}}
                     </td>
                     <td>
-                      {{item.estado}}
+                      {{item.Estado}}
                     </td>
                     <td>
-                      {{item.indicacao}}
+                      {{item.celular}}
                     </td>
-                    <td></td>
+                    <td *ngIf="item.cnh && item.crlv && item.comprovante_residencia; else other_content">
+                      <label class="badge badge-success color-green">Concluído</label>
+                    </td>
+                    <ng-template #other_content>
+                      <td>
+                        <label class="badge badge-danger color-red">Pendente</label>
+                      </td>
+                    </ng-template>
                   </tr>
                 </tbody>
               </table>

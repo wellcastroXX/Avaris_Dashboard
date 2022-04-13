@@ -1,0 +1,18 @@
+$table-width-driver: 1236px;
+$color-green: green;
+$color-red: red;
+
+.driver {
+  &__table--widht {
+    width: $table-width-driver;
+  }
+}
+
+.color-green {
+  color: $color-green;
+}
+
+.color-red {
+  color: $color-red;
+}
+
