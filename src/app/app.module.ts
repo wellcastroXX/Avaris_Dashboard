@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { DriversRepositoryImpl } from './features/drivers/data/repositories/drivers.repository.impl';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from './../environments/environment';
 import { AngularFireModule } from '@angular/fire';
@@ -16,6 +16,8 @@ import { UsersRepository } from './features/users/domain/repositories/users.repo
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { DriversDataSource, DriversDataSourceImpl } from './features/drivers/data/datasources/drivers.data-source';
+import { DriversRepository } from './features/drivers/domain/repositories/drivers.repository';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
       provide: MAT_DATE_LOCALE, useValue: 'pt-BR'
     },
     { provide: UsersRepository, useClass: UsersRepositoryImpl },
-    { provide: UsersDataSource, useClass: UsersDataSourceImpl }
+    { provide: UsersDataSource, useClass: UsersDataSourceImpl },
+
+    { provide: DriversRepository, useClass: DriversRepositoryImpl }, 
+    { provide: DriversDataSource, useClass: DriversDataSourceImpl }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

@@ -27,8 +27,6 @@ export class UsersComponent implements OnInit {
           ...e.payload.doc.data()
         };
       });
-      console.log('dataList', this.dataList);
-      
     })
   }
 }
