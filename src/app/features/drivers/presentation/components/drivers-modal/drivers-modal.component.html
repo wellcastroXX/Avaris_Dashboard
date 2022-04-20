@@ -1,0 +1,78 @@
+<h1 mat-dialog-title>{{data.nome}} {{data.sobrenome}}</h1>
+<hr>
+<div mat-dialog-content>
+  <ul>
+    <li class="status-success" *ngIf="data.cnh && data.crlv && data.comprovante_residencia; else other_content">
+      Status: Concluído
+    </li>
+    <ng-template #other_content>
+      <li class="status-waiting">
+        Status: Pendente
+      </li>
+    </ng-template>
+    <li>
+      Data de nascimento: {{data.datadenascimento}}
+    </li>
+    <li>
+      CPF: {{data.cpf}}
+    </li>
+    <li>
+      E-mail: {{data.email}}
+    </li>
+    <li>
+      Estado: {{data.Estado}}
+    </li>
+    <li>
+      Celular: {{data.celular}}
+    </li>
+  </ul>
+
+  <div class="info-more__documentos-picture">
+    <div class="info-more__icon" *ngIf="data.cnh">
+      <a target="_blank" href="{{data.cnh}}">
+        <span>
+          CNH:
+        </span>
+        <span class="material-icons">
+          find_in_page
+        </span>
+      </a>
+    </div>
+    <div class="info-more__icon" *ngIf="data.comprovante_residencia">
+      <a target="_blank" href="{{data.comprovante_residencia}}">
+        <span>
+          Comprovante de residência:
+        </span>
+        <span class="material-icons">
+          find_in_page
+        </span>
+      </a>
+    </div>
+    <div class="info-more__icon" *ngIf="data.crlv">
+      <a target="_blank" href="{{data.crlv}}">
+        <span>
+          CRLV:
+        </span>
+        <span class="material-icons">
+          find_in_page
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="button">
+  <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
+
+
+  <button mat-mini-fab color="warn" *ngIf="data?.Locked" (click)="updateDriverLock(data.id, false)">
+    <span class="material-icons button__icon">
+      lock
+    </span>
+  </button>
+
+  <button mat-mini-fab color="primary" *ngIf="!data.Locked" (click)="updateDriverLock(data.id, true)">
+    <span class="material-icons button__icon">
+      lock_open
+    </span>
+  </button>
+</div>

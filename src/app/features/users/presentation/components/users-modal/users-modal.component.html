@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>{{data.nome}} {{data.sobrenome}}</h1>
+<hr>
+<div mat-dialog-content>
+  <ul>
+    <li>
+      Data de nascimento: {{data.datadenascimento}}
+    </li>
+    <li>
+      CPF: {{data.cpf}}
+    </li>
+    <li>
+      E-mail: {{data.email}}
+    </li>
+    <li>
+      Estado: {{data.Estado}}
+    </li>
+    <li>
+      Celular: {{data.celular}}
+    </li>
+  </ul>
+</div>
+<div mat-dialog-actions class="button">
+  <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
+</div>

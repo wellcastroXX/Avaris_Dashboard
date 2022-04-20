@@ -1,0 +1,32 @@
+
+.info-more {
+  display: flex;
+  flex-direction: column;
+
+  &__documentos-picture {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+ul, li {
+  font-size: 14px;
+}
+
+.status-waiting {
+  color: red;
+}
+
+.status-success {
+  color: green;
+}
+
+.button {
+  justify-content: space-between;
+
+  &__icon {
+    position: relative;
+    bottom: 2px;
+  }
+}

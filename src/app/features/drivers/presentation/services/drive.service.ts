@@ -4,14 +4,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class DriverService {
+export class DriversService {
 
-  constructor(
-    private _driversListUserCase: DriversListUseCase
-  ) {
-  }
-
-  getDriversList() {
-    return this._driversListUserCase.execute();
+  constructor() {
   }
 }

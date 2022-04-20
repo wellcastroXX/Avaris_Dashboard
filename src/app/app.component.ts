@@ -8,7 +8,7 @@ import { locale as corePortuguese } from '../assets/i18n/pt';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title: string;
 
   table = true;
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
     this._translateService.addLangs(['pt']);
 
     this._translateService.setDefaultLang('pt');
-    
+
     this._coreTranslationLoaderService.loadTranslations(corePortuguese);
 
     this._translateService.use('pt');

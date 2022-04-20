@@ -8,13 +8,27 @@
   margin-top: 10px;
 }
 
-users {
+app-users {
   width: 100%;
   padding: 1.0rem 1.0rem 1.0rem 1.0rem;
 }
 
-drivers {
+app-drivers {
   width: 100%;
   position: relative;
   padding: 1.0rem 1.0rem 1.0rem 1.0rem;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.blue-snackbar {
+  background: #4AAFE3;
+  color: white;
+}
+
+.blue-snackbar button {
+  background-color: #4AAFE3;
+  color: white;
+  border: none;
 }

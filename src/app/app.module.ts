@@ -1,3 +1,5 @@
+import { UsersStates } from './features/users/presentation/store/user.store';
+import { DriversStates } from './features/drivers/presentation/store/drivers.store';
 import { DriversRepositoryImpl } from './features/drivers/data/repositories/drivers.repository.impl';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from './../environments/environment';
@@ -18,6 +20,7 @@ import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { DriversDataSource, DriversDataSourceImpl } from './features/drivers/data/datasources/drivers.data-source';
 import { DriversRepository } from './features/drivers/domain/repositories/drivers.repository';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,12 @@ import { DriversRepository } from './features/drivers/domain/repositories/driver
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    NgxsModule.forRoot([
+      DriversStates,
+      UsersStates
+    ])
   ],
   providers: [
     {
@@ -41,7 +49,7 @@ import { DriversRepository } from './features/drivers/domain/repositories/driver
     { provide: UsersRepository, useClass: UsersRepositoryImpl },
     { provide: UsersDataSource, useClass: UsersDataSourceImpl },
 
-    { provide: DriversRepository, useClass: DriversRepositoryImpl }, 
+    { provide: DriversRepository, useClass: DriversRepositoryImpl },
     { provide: DriversDataSource, useClass: DriversDataSourceImpl }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,8 +1,13 @@
-// import { IPaginationRequest } from 'src/@common/directives/entities/pagination.entity';
-// import { ITasks } from './../../domain/entities/tasks.entity';
-// import { IPaymentsScheduleStateModel } from './payments-schedule.states';
+import { IUsersStateModel } from './user.store';
 
-// export class FetchPaymentsScheduleList {
-//   public static readonly type = '[paymentsSchedule] Fetch payments schedule list';
-//   constructor(public paginationRequest: IPaginationRequest, public keySearch: any) { }
-// }
+export class FetchUsersList {
+  public static readonly type = '[Users] Fetch users list';
+}
+export class FetchUsersSuccess {
+  public static readonly type = '[Users/Success] Fetch users success';
+  constructor(public payload: IUsersStateModel) { }
+}
+export class FetchUsersError {
+  public static readonly type = '[Users/Error] Fetch users error';
+  constructor(public error: any) { }
+}

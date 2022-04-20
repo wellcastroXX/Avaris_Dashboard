@@ -1,6 +1,7 @@
-$table-width-driver: 1236px;
+$table-width-driver: 1400px;
 $color-green: green;
 $color-red: red;
+$color-white: white;
 
 .driver {
   &__table--widht {
@@ -8,15 +9,54 @@ $color-red: red;
   }
 }
 
-.color-green {
+.color-success {
   color: $color-green;
+  background-color: $color-white;
 }
 
-.color-red {
+.color-waiting {
   color: $color-red;
+  background-color: $color-white;
 }
 
 .card {
   height: 500px;
   overflow-y: scroll;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 12%;
+}
+
+th {
+  font-size: 14px;
+}
+
+.pr-5 {
+  padding-right: 5px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+tr:hover {
+  background-color: #4AAFE3;
+  
+  td {
+    color: $color-white;
+  }
+}
+
+td, label{
+  cursor: pointer;
 }
