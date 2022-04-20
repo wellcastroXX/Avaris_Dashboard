@@ -1,5 +1,14 @@
 {
   "projects": {
-    "default": "appavaris"
+    "default": "avaris-465f8"
+  },
+  "targets": {
+    "avaris-465f8": {
+      "hosting": {
+        "appavaris": [
+          "appavaris"
+        ]
+      }
+    }
   }
 }
