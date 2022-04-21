@@ -1,4 +1,22 @@
-<h1 mat-dialog-title>{{data.nome}} {{data.sobrenome}}</h1>
+<div mat-dialog-actions class="driver-modal">
+  <div class="content-lock-and-name">
+    <button mat-mini-fab color="warn" *ngIf="data?.Locked" (click)="updateDriverLock(data.id, false)">
+      <span class="material-icons driver-modal__icon">
+        lock
+      </span>
+    </button>
+
+    <button mat-mini-fab color="primary" *ngIf="!data.Locked" (click)="updateDriverLock(data.id, true)">
+      <span class="material-icons driver-modal__icon">
+        lock_open
+      </span>
+    </button>
+    <h1 mat-dialog-title>{{data.nome}} {{data.sobrenome}}</h1>
+  </div>
+  <span (click)="closeModal()" class="material-icons button-cancel">
+    cancel
+  </span>
+</div>
 <hr>
 <div mat-dialog-content>
   <ul>
@@ -59,20 +77,4 @@
       </a>
     </div>
   </div>
-</div>
-<div mat-dialog-actions class="button">
-  <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
-
-
-  <button mat-mini-fab color="warn" *ngIf="data?.Locked" (click)="updateDriverLock(data.id, false)">
-    <span class="material-icons button__icon">
-      lock
-    </span>
-  </button>
-
-  <button mat-mini-fab color="primary" *ngIf="!data.Locked" (click)="updateDriverLock(data.id, true)">
-    <span class="material-icons button__icon">
-      lock_open
-    </span>
-  </button>
 </div>

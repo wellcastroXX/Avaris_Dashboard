@@ -1,4 +1,9 @@
-<h1 mat-dialog-title>{{data.nome}} {{data.sobrenome}}</h1>
+<div mat-dialog-actions class="users-modal">
+  <h1 mat-dialog-title>{{data.nome}} {{data.sobrenome}}</h1>
+  <span (click)="closeModal()" class="material-icons button-cancel">
+    cancel
+  </span>
+</div>
 <hr>
 <div mat-dialog-content>
   <ul>
@@ -12,13 +17,7 @@
       E-mail: {{data.email}}
     </li>
     <li>
-      Estado: {{data.Estado}}
-    </li>
-    <li>
       Celular: {{data.celular}}
     </li>
   </ul>
-</div>
-<div mat-dialog-actions class="button">
-  <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
 </div>

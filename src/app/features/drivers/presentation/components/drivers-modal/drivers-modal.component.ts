@@ -4,7 +4,7 @@ import { FetchUpdateDriverLock } from './../../store/drivers.actions';
 import { IUpdateDriverLock } from './../../../domain/entities/driver-lock.entity';
 import { Store } from '@ngxs/store';
 import { OnInit, Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
 
 
@@ -19,11 +19,16 @@ export class DriversModalComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _store: Store,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
 
+  }
+
+  closeModal() {
+    this._dialog.closeAll();
   }
 
   updateDriverLock(id: string, Locked: boolean) {

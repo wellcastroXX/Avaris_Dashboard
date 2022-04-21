@@ -4,14 +4,18 @@
   flex-direction: column;
 
   &__documentos-picture {
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     flex-direction: column;
+  }
+
+  &__icon {
+    padding: 5px;
   }
 }
 
 ul, li {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .status-waiting {
@@ -22,11 +26,28 @@ ul, li {
   color: green;
 }
 
-.button {
+.driver-modal {
   justify-content: space-between;
+  position: relative;
+  bottom: 10px;
 
   &__icon {
     position: relative;
     bottom: 2px;
+  }
+}
+
+.button-cancel {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.content-lock-and-name {
+  display: flex;
+  h1 {
+    margin-bottom: 0px;
+    display: flex;
+    align-self: center;
+    padding-left: 10px;
   }
 }

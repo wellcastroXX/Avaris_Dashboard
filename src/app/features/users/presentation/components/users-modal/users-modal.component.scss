@@ -1,3 +1,21 @@
-ul, li {
-  font-size: 14px;
+.users-modal {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: 10px;
+
+  h1 {
+    margin-bottom: 0px;
+  }
 }
+
+.button-cancel {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+ul, li {
+  font-size: 16px;
+}
+

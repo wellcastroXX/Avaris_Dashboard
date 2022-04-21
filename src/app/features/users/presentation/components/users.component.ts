@@ -59,7 +59,8 @@ export class UsersComponent implements OnInit, AfterViewInit {
       if (item.id === id) {
         this._dialog.open(UsersModalComponent, {
           data: item,
-          disableClose: true
+          disableClose: true,
+          width: '800px'
         });
       }
     });
