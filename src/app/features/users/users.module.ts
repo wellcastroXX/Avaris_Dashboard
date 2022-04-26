@@ -11,6 +11,8 @@ import { UsersComponent } from './presentation/components/users.component';
 import { CommonModule } from '@angular/common';
 import { UsersRoutingModule } from './users.routing';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
     MatPaginatorModule,
     MatButtonModule,
     MatCardModule,
+    MatToolbarModule,
+    MatTabsModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

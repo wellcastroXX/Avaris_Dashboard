@@ -1,40 +1,5 @@
-
-.info-more {
-  display: flex;
-  flex-direction: column;
-
-  &__documentos-picture {
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__icon {
-    padding: 5px;
-  }
-}
-
-ul, li {
-  font-size: 16px;
-}
-
-.status-waiting {
-  color: red;
-}
-
-.status-success {
-  color: green;
-}
-
-.driver-modal {
-  justify-content: space-between;
+.driver {
   position: relative;
-  bottom: 10px;
-
-  &__icon {
-    position: relative;
-    bottom: 2px;
-  }
 }
 
 .button-cancel {
@@ -42,12 +7,21 @@ ul, li {
   cursor: pointer;
 }
 
-.content-lock-and-name {
-  display: flex;
-  h1 {
-    margin-bottom: 0px;
-    display: flex;
-    align-self: center;
-    padding-left: 10px;
-  }
+ul, li {
+  font-size: 16px;
+  padding: 8px;
+  list-style-type: none;
+}
+
+.large-size {
+  height: 290px;
+}
+
+.mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.no-info {
+  padding: 20px;
+  font-size: 16px;
 }

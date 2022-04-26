@@ -1,23 +1,47 @@
-<div mat-dialog-actions class="users-modal">
-  <h1 mat-dialog-title>{{data.nome}} {{data.sobrenome}}</h1>
-  <span (click)="closeModal()" class="material-icons button-cancel">
-    cancel
-  </span>
-</div>
-<hr>
-<div mat-dialog-content>
-  <ul>
-    <li>
-      Data de nascimento: {{data.datadenascimento}}
-    </li>
-    <li>
-      CPF: {{data.cpf}}
-    </li>
-    <li>
-      E-mail: {{data.email}}
-    </li>
-    <li>
-      Celular: {{data.celular}}
-    </li>
-  </ul>
-</div>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div>
+      <img class="img-xs rounded-circle" src="../assets/images/faces/no-phofile.jpg" alt="Profile image">
+      <span class="ml-10">{{data.nome}} {{data.sobrenome}}</span>
+    </div>
+    <span (click)="closeModal()" class="material-icons button-cancel">
+      cancel
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-tab-group mat-stretch-tabs="example-stretched-tabs mat-elevation-z4">
+  <mat-tab label="DADOS GERAIS">
+    <div class="large-size">
+      <div class="user user__documents">
+        <ul>
+          <li>
+            <span class="color-grey">Data de nascimento:</span> {{data.datadenascimento}}
+          </li>
+          <li>
+            <span class="color-grey">CPF:</span> {{data.cpf}}
+          </li>
+          <li>
+            <span class="color-grey">E-mail:</span> {{data.email}}
+          </li>
+          <li>
+            <span class="color-grey">Celular:</span> {{data.celular}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="DOCUMENTOS">
+    <div class="large-size">
+      <div class="no-info">
+        Sem dados para exibição
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab class="large-size" label="ATIVIDADES">
+    <div class="large-size">
+      <div class="no-info">
+        Sem dados para exibição
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

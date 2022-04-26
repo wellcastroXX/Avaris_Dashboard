@@ -1,21 +1,28 @@
-.users-modal {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  bottom: 10px;
-
-  h1 {
-    margin-bottom: 0px;
-  }
-}
-
 .button-cancel {
   font-size: 30px;
   cursor: pointer;
 }
 
+.user {
+  position: relative;
+}
+
+.mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.no-info {
+  padding: 20px;
+  font-size: 16px;
+}
 
 ul, li {
   font-size: 16px;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.large-size {
+  height: 330px;
 }
 

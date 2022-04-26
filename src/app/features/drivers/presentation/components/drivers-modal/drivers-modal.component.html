@@ -1,80 +1,100 @@
-<div mat-dialog-actions class="driver-modal">
-  <div class="content-lock-and-name">
-    <button mat-mini-fab color="warn" *ngIf="data?.Locked" (click)="updateDriverLock(data.id, false)">
-      <span class="material-icons driver-modal__icon">
-        lock
-      </span>
-    </button>
-
-    <button mat-mini-fab color="primary" *ngIf="!data.Locked" (click)="updateDriverLock(data.id, true)">
-      <span class="material-icons driver-modal__icon">
-        lock_open
-      </span>
-    </button>
-    <h1 mat-dialog-title>{{data.nome}} {{data.sobrenome}}</h1>
-  </div>
-  <span (click)="closeModal()" class="material-icons button-cancel">
-    cancel
-  </span>
-</div>
-<hr>
-<div mat-dialog-content>
-  <ul>
-    <li class="status-success" *ngIf="data.cnh && data.crlv && data.comprovante_residencia; else other_content">
-      Status: Concluído
-    </li>
-    <ng-template #other_content>
-      <li class="status-waiting">
-        Status: Pendente
-      </li>
-    </ng-template>
-    <li>
-      Data de nascimento: {{data.datadenascimento}}
-    </li>
-    <li>
-      CPF: {{data.cpf}}
-    </li>
-    <li>
-      E-mail: {{data.email}}
-    </li>
-    <li>
-      Estado: {{data.Estado}}
-    </li>
-    <li>
-      Celular: {{data.celular}}
-    </li>
-  </ul>
-
-  <div class="info-more__documentos-picture">
-    <div class="info-more__icon" *ngIf="data.cnh">
-      <a target="_blank" href="{{data.cnh}}">
-        <span>
-          CNH:
-        </span>
-        <span class="material-icons">
-          find_in_page
-        </span>
-      </a>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div>
+      <img class="img-xs rounded-circle" src="../assets/images/faces/no-phofile.jpg" alt="Profile image">
+      <span class="ml-10">{{data.nome}} {{data.sobrenome}}</span>
     </div>
-    <div class="info-more__icon" *ngIf="data.comprovante_residencia">
-      <a target="_blank" href="{{data.comprovante_residencia}}">
-        <span>
-          Comprovante de residência:
-        </span>
-        <span class="material-icons">
-          find_in_page
-        </span>
-      </a>
+    <span (click)="closeModal()" class="material-icons button-cancel">
+      cancel
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar>
+  <mat-slide-toggle color="primary" *ngIf="!data.Locked" (click)="updateDriverLock(data.id, true)" checked="true">
+    Usuario Ativo</mat-slide-toggle>
+  <mat-slide-toggle *ngIf="data.Locked" (click)="updateDriverLock(data.id, false)" color="warn" checked="false">Usuario
+    Inativo</mat-slide-toggle>
+</mat-toolbar>
+<mat-tab-group mat-stretch-tabs="example-stretched-tabs mat-elevation-z4">
+  <mat-tab label="DADOS GERAIS">
+    <div class="large-size">
+      <div class="driver driver__documents">
+        <ul>
+          <li class="status-success" *ngIf="data.cnh && data.crlv && data.comprovante_residencia; else other_content">
+            <span class="color-grey">Status:</span> Concluído
+          </li>
+          <ng-template #other_content>
+            <li class="status-waiting">
+              <span class="color-grey">Status:</span> Pendente
+            </li>
+          </ng-template>
+          <li>
+            <span class="color-grey">Data de nascimento:</span> {{data.datadenascimento}}
+          </li>
+          <li>
+            <span class="color-grey">CPF:</span> {{data.cpf}}
+          </li>
+          <li>
+            <span class="color-grey">E-mail:</span> {{data.email}}
+          </li>
+          <li>
+            <span class="color-grey">Estado:</span> {{data.Estado}}
+          </li>
+          <li>
+            <span class="color-grey">Celular:</span> {{data.celular}}
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="info-more__icon" *ngIf="data.crlv">
-      <a target="_blank" href="{{data.crlv}}">
-        <span>
-          CRLV:
-        </span>
-        <span class="material-icons">
-          find_in_page
-        </span>
-      </a>
+  </mat-tab>
+  <mat-tab label="DOCUMENTOS">
+    <div class="large-size">
+      <div class="no-info">
+        <span class="color-grey" *ngIf="
+          data.cnh || 
+          data.comprovante_residencia ||
+          data.crlv; else no_documents">Clique para visualizar os documentos:</span>
+        <ng-template #no_documents>
+          <span>Sem dados para exibição</span>
+        </ng-template>
+        <div *ngIf="data.cnh" class="mb-10 mt-10">
+          <a target="_blank" href="{{data.cnh}}">
+            <span>
+              CNH:
+            </span>
+            <span class="material-icons">
+              photo_library
+            </span>
+          </a>
+        </div>
+        <div *ngIf="data.comprovante_residencia" class="mb-10">
+          <a target="_blank" href="{{data.comprovante_residencia}}">
+            <span>
+              Comprovante de residência:
+            </span>
+            <span class="material-icons">
+              photo_library
+            </span>
+          </a>
+        </div>
+        <div *ngIf="data.crlv" class="mb-10">
+          <a target="_blank" href="{{data.crlv}}">
+            <span>
+              CRLV:
+            </span>
+            <span class="material-icons">
+              photo_library
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </mat-tab>
+  <mat-tab class="large-size" label="ATIVIDADES">
+    <div class="large-size">
+      <div class="no-info">
+        Sem dados para exibição
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

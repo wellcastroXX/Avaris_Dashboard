@@ -45,16 +45,5 @@ export class DriversModalComponent implements OnInit {
           if (item.id === this.data.id) this.data = item;
         });
       });
-    this.data['Locked'] == true ?
-      this._snackBar.open('Motorista desbloqueado com sucesso', 'OK',
-        {
-          duration: 3000,
-          panelClass: ['blue-snackbar']
-        })
-      : this._snackBar.open('Motorista bloqueado com sucesso', 'OK',
-        {
-          duration: 3000,
-          panelClass: ['blue-snackbar']
-        });
   }
 }

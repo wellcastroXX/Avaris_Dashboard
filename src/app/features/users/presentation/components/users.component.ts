@@ -60,7 +60,7 @@ export class UsersComponent implements OnInit, AfterViewInit {
         this._dialog.open(UsersModalComponent, {
           data: item,
           disableClose: true,
-          width: '800px'
+          width: '1400px'
         });
       }
     });
