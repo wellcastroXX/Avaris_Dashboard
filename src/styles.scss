@@ -18,20 +18,23 @@
 
 app-users {
   width: 100%;
-  padding: 1.0rem 1.0rem 1.0rem 1.0rem;
+  .container-user {
+    padding: 1.0rem 1.0rem 1.0rem 1.0rem;
+  }
 }
 
 app-drivers {
   width: 100%;
   position: relative;
-  padding: 1.0rem 1.0rem 1.0rem 1.0rem;
+  .container-driver {
+    padding: 1.0rem 1.0rem 1.0rem 1.0rem;
+  }
 }
 
 mat-dialog-container {
   padding: 0px !important;
 }
 
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .blue-snackbar {
   background: #4AAFE3;

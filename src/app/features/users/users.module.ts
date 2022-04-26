@@ -1,3 +1,5 @@
+import { SideNavBarModule } from './../../components/side-nav-bar/side-nav-bar.module';
+import { SubNavBarModule } from './../../components/sub-nav-bar/sub-nav-bar.module';
 import { UsersModalComponent } from './presentation/components/users-modal/users-modal.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -31,7 +33,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    MatTabsModule
+    MatTabsModule,
+    SubNavBarModule,
+    SideNavBarModule
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

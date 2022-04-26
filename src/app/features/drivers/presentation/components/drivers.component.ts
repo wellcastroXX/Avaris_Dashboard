@@ -61,7 +61,7 @@ export class DriversComponent implements OnInit, AfterViewInit {
         this._dialog.open(DriversModalComponent, {
           data: item,
           disableClose: true,
-          width: '1400px',
+          width: '1400px'
         });
       }
     });

@@ -1,3 +1,5 @@
+import { SubNavBarModule } from './../../components/sub-nav-bar/sub-nav-bar.module';
+import { SideNavBarModule } from './../../components/side-nav-bar/side-nav-bar.module';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { DriversModalComponent } from './presentation/components/drivers-modal/drivers-modal.component';
@@ -35,7 +37,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSnackBarModule,
     MatToolbarModule,
     MatTabsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    SubNavBarModule,
+    SideNavBarModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
