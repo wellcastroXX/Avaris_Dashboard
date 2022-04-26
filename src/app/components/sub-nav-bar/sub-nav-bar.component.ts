@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 
@@ -8,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class SubNavBarComponent {
 
+  constructor(
+    private _router: Router
+  ) { }
+
+  logout() {
+    localStorage.removeItem('user');
+    this._router.navigate(['login']);
+  }
 }
+

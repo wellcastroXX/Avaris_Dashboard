@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { SubNavBarComponent } from './sub-nav-bar.component';
 import { NgModule } from "@angular/core";
 
@@ -7,6 +8,9 @@ import { NgModule } from "@angular/core";
   ],
   exports: [
     SubNavBarComponent
+  ],
+  imports: [
+    RouterModule
   ]
 })
 export class SubNavBarModule { }
