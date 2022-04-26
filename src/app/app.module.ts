@@ -1,5 +1,3 @@
-import { LoginDataSource, LoginDataSourceImpl } from './features/login/data/datasources/login.data-source';
-import { LoginRepositoryImpl } from './features/login/data/repositories/login.repository.impl';
 import { UsersStates } from './features/users/presentation/store/user.store';
 import { DriversStates } from './features/drivers/presentation/store/drivers.store';
 import { DriversRepositoryImpl } from './features/drivers/data/repositories/drivers.repository.impl';
@@ -23,8 +21,6 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { DriversDataSource, DriversDataSourceImpl } from './features/drivers/data/datasources/drivers.data-source';
 import { DriversRepository } from './features/drivers/domain/repositories/drivers.repository';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginRepository } from './features/login/domain/repositories/login.repository';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,9 +50,6 @@ import { LoginRepository } from './features/login/domain/repositories/login.repo
 
     { provide: DriversRepository, useClass: DriversRepositoryImpl },
     { provide: DriversDataSource, useClass: DriversDataSourceImpl },
-
-    { provide: LoginRepository, useClass: LoginRepositoryImpl },
-    { provide: LoginDataSource, useClass: LoginDataSourceImpl }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
