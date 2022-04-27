@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
@@ -13,9 +14,12 @@ export const appRoutes: Routes = [
     path: 'dashboard', loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
-    path: 'users-list', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule)
+    path: 'users-list',
+    loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule),
+    canActivate: [AuthGuard]
   },
   {
-    path: 'drivers-list', loadChildren: () => import('./features/drivers/drivers.module').then(m => m.DriversModule)
+    path: 'drivers-list', loadChildren: () => import('./features/drivers/drivers.module').then(m => m.DriversModule),
+    canActivate: [AuthGuard]
   }
 ]
