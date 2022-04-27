@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginRoutingModule } from './login.routing';
 import { CommonModule } from '@angular/common';

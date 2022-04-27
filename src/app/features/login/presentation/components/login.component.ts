@@ -14,6 +14,10 @@ export class LoginComponent implements OnInit {
   messageError: string;
   loading: boolean = false;
 
+  emailsList = [
+    'well@hotmail.com',
+  ]
+
   constructor(
     private _loginService: LoginService,
     private _fb: FormBuilder,
@@ -33,16 +37,23 @@ export class LoginComponent implements OnInit {
 
   signIn() {
     const email = this.loginForm.get("email").value;
-    const password = this.loginForm.get("password").value;
-    this.loading = true;
 
-    this._loginService.signIn(email, password).then(res => {
-      localStorage.setItem('user', JSON.stringify(res.user));
+    if (this.emailsList.includes(email)) {
       this._router.navigate(['users-list']);
-      this.loading = false;
-    }, () => {
-      this.loading = false;
+    } else {
       this.messageError = "E-mail ou Senha Inválidos"
-    });
+    }
+    // const email = this.loginForm.get("email").value;
+    // const password = this.loginForm.get("password").value;
+    // this.loading = true;
+
+    // this._loginService.signIn(email, password).then(res => {
+    //   localStorage.setItem('user', JSON.stringify(res.user));
+    //   this._router.navigate(['users-list']);
+    //   this.loading = false;
+    // }, () => {
+    //   this.loading = false;
+    //   this.messageError = "E-mail ou Senha Inválidos"
+    // });
   }
 }

@@ -1,4 +1,3 @@
-import { AuthGuard } from './guards/auth.guard';
 import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
@@ -16,10 +15,10 @@ export const appRoutes: Routes = [
   {
     path: 'users-list',
     loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'drivers-list', loadChildren: () => import('./features/drivers/drivers.module').then(m => m.DriversModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   }
 ]

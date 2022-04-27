@@ -1,4 +1,3 @@
-import { AuthGuard } from './guards/auth.guard';
 import { UsersStates } from './features/users/presentation/store/user.store';
 import { DriversStates } from './features/drivers/presentation/store/drivers.store';
 import { DriversRepositoryImpl } from './features/drivers/data/repositories/drivers.repository.impl';
@@ -51,7 +50,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     { provide: DriversRepository, useClass: DriversRepositoryImpl },
     { provide: DriversDataSource, useClass: DriversDataSourceImpl },
-    AuthGuard
+    // AuthGuard
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
