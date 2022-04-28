@@ -1,3 +1,6 @@
+import { ToSignRepositoryImpl } from './features/to-sign/data/repositories/to-sign.repository.impl';
+import { ToSignDataSource, ToSignDataSourceImpl } from './features/to-sign/data/datasources/to-sign.data-source';
+import { TripsRepositoryImpl } from './features/trips/data/repositories/trips.repository.impl';
 import { UsersStates } from './features/users/presentation/store/user.store';
 import { DriversStates } from './features/drivers/presentation/store/drivers.store';
 import { DriversRepositoryImpl } from './features/drivers/data/repositories/drivers.repository.impl';
@@ -21,6 +24,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { DriversDataSource, DriversDataSourceImpl } from './features/drivers/data/datasources/drivers.data-source';
 import { DriversRepository } from './features/drivers/domain/repositories/drivers.repository';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TripsRepository } from './features/trips/domain/repositories/trips.repository';
+import { TripsDataSource, TripsDataSourceImpl } from './features/trips/data/datasources/trips.data-source';
+import { ToSignRepository } from './features/to-sign/domain/repositories/to-sign.repository';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +56,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     { provide: DriversRepository, useClass: DriversRepositoryImpl },
     { provide: DriversDataSource, useClass: DriversDataSourceImpl },
+
+    { provide: TripsRepository, useClass: TripsRepositoryImpl },
+    { provide: TripsDataSource, useClass: TripsDataSourceImpl },
     // AuthGuard
+    { provide: ToSignRepository, useClass: ToSignRepositoryImpl },
+    { provide: ToSignDataSource, useClass: ToSignDataSourceImpl },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

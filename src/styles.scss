@@ -31,6 +31,22 @@ app-drivers {
   }
 }
 
+app-trips-list {
+  width: 100%;
+  position: relative;
+  .container-trips {
+    padding: 1.0rem 1.0rem 1.0rem 1.0rem;
+  }
+}
+
+app-to-sign-list {
+  width: 100%;
+  position: relative;
+  .container-to-asign {
+    padding: 1.0rem 1.0rem 1.0rem 1.0rem;
+  }
+}
+
 mat-dialog-container {
   padding: 0px !important;
 }

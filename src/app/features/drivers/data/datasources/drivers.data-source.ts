@@ -1,6 +1,5 @@
 import { IUpdateDriverLock } from './../../domain/entities/driver-lock.entity';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable, of } from 'rxjs';
 import { Injectable } from "@angular/core";
 

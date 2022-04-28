@@ -20,5 +20,13 @@ export const appRoutes: Routes = [
   {
     path: 'drivers-list', loadChildren: () => import('./features/drivers/drivers.module').then(m => m.DriversModule),
     // canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'trips', loadChildren: () => import('./features/trips/trips.module').then(m => m.TripsModule),
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'to-sign', loadChildren: () => import('./features/to-sign/to-sign.module').then(m => m.ToSignModule),
+    // canActivate: [AuthGuard]
+  },
 ]

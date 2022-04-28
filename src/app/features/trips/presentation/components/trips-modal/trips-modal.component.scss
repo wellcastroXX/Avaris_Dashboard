@@ -1,0 +1,27 @@
+.driver {
+  position: relative;
+}
+
+.button-cancel {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+ul, li {
+  font-size: 16px;
+  padding: 8px;
+  list-style-type: none;
+}
+
+.large-size {
+  height: 290px;
+}
+
+.mat-toolbar-row {
+  justify-content: space-between;
+}
+
+.no-info {
+  padding: 20px;
+  font-size: 16px;
+}
