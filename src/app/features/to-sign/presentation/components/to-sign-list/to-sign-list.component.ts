@@ -1,5 +1,6 @@
+import { ToSignStates } from './../../store/to-sign.store';
+import { FetchToSignList } from './../../store/to-sign.actions';
 import { Store } from '@ngxs/store';
-import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,8 +12,15 @@ import { OnInit, Component, ViewChild } from '@angular/core';
   styleUrls: ['./to-sign-list.component.scss']
 })
 export class ToSignListComponent implements OnInit {
+
   displayedColumns: string[] = [
-    'teste',
+    'nome',
+    'sobrenome',
+    'dataDeNascimento',
+    'cpf',
+    'celular',
+    'statusDaAssinatura'
+
   ];
   dataSource: MatTableDataSource<any>;
 
@@ -20,12 +28,13 @@ export class ToSignListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-    private _dialog: MatDialog,
     private _store: Store
   ) {
     this.dataSource = new MatTableDataSource();
   }
-  ngOnInit() { }
+  ngOnInit() {
+    this._getUserToSignList();
+  }
 
   applyFilter(event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -39,5 +48,20 @@ export class ToSignListComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  private _getUserToSignList() {
+    let avarisPremiumList = [];
+    this._store.dispatch(new FetchToSignList())
+
+    this._store.select(ToSignStates.getToSignList).subscribe(value => {
+      avarisPremiumList = [];
+      value.dataList.map(item => {
+        if (item.avarispremium) {
+          avarisPremiumList.push(item);
+        }
+      });
+      this.dataSource.data = avarisPremiumList;
+    });
   }
 }

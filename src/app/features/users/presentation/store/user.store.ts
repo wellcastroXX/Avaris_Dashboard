@@ -70,7 +70,7 @@ export class UsersStates {
   }
 
   @Action(FetchUsersError)
-  public fetchPaymentsScheduleError(
+  public fetchUserError(
     ctx: StateContext<IUsersStateModel>,
     { error }: FetchUsersError
   ) {

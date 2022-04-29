@@ -1,3 +1,4 @@
+import { Store } from '@ngxs/store';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToSignComponent implements OnInit {
 
-  constructor() { }
+  public usersToSignList = [];
 
-  ngOnInit() {
+  constructor(
+    private _store: Store
+  ) { }
 
-  }
+  ngOnInit() { }
 }

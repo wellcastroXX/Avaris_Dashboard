@@ -1,5 +1,4 @@
-import { ToSignRepositoryImpl } from './features/to-sign/data/repositories/to-sign.repository.impl';
-import { ToSignDataSource, ToSignDataSourceImpl } from './features/to-sign/data/datasources/to-sign.data-source';
+import { ToSignStates } from './features/to-sign/presentation/store/to-sign.store';
 import { TripsRepositoryImpl } from './features/trips/data/repositories/trips.repository.impl';
 import { UsersStates } from './features/users/presentation/store/user.store';
 import { DriversStates } from './features/drivers/presentation/store/drivers.store';
@@ -26,7 +25,6 @@ import { DriversRepository } from './features/drivers/domain/repositories/driver
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TripsRepository } from './features/trips/domain/repositories/trips.repository';
 import { TripsDataSource, TripsDataSourceImpl } from './features/trips/data/datasources/trips.data-source';
-import { ToSignRepository } from './features/to-sign/domain/repositories/to-sign.repository';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +42,8 @@ import { ToSignRepository } from './features/to-sign/domain/repositories/to-sign
     BrowserAnimationsModule,
     NgxsModule.forRoot([
       DriversStates,
-      UsersStates
+      UsersStates,
+      ToSignStates
     ])
   ],
   providers: [
@@ -60,8 +59,6 @@ import { ToSignRepository } from './features/to-sign/domain/repositories/to-sign
     { provide: TripsRepository, useClass: TripsRepositoryImpl },
     { provide: TripsDataSource, useClass: TripsDataSourceImpl },
     // AuthGuard
-    { provide: ToSignRepository, useClass: ToSignRepositoryImpl },
-    { provide: ToSignDataSource, useClass: ToSignDataSourceImpl },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

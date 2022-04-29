@@ -7,10 +7,37 @@
 
   <div class="mat-elevation-z8 users__table--width">
     <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="teste">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Teste</th>
-        <td mat-cell *matCellDef="let row">teste</td>
+      
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
+        <td mat-cell *matCellDef="let row">{{row.nome}}</td>
       </ng-container>
+
+      <ng-container matColumnDef="sobrenome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sobrenome</th>
+        <td mat-cell *matCellDef="let row">{{row.sobrenome}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataDeNascimento">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Data de Nascimento</th>
+        <td mat-cell *matCellDef="let row">{{row.datadenascimento}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cpf">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>CPF</th>
+        <td mat-cell *matCellDef="let row">{{row.cpf}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="celular">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Celular</th>
+        <td mat-cell *matCellDef="let row">{{row.celular}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="statusDaAssinatura">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Status da Assinatura</th>
+        <td class="text-align-center" mat-cell *matCellDef="let row">{{row.terms}}</td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       <tr class="mat-row" *matNoDataRow>
