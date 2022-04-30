@@ -4,12 +4,6 @@ $color-green: green;
 $color-red: red;
 $color-white: white;
 
-.users {
-  &__table--widht {
-    width: $table-width-driver;
-  }
-}
-
 .card {
   height: 500px;
   overflow-y: scroll;

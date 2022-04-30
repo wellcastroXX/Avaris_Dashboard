@@ -78,3 +78,15 @@ mat-dialog-container {
 .text-align-center {
   text-align: center;
 }
+
+.sidebar .nav .nav-item.active {
+  margin-right: 5px;
+}
+
+.sidebar .nav .nav-item {
+  margin-right: 5px;
+}
+
+.sidebar .nav .nav-item.active > .nav-link .menu-title {
+  font-size: 15px;
+}

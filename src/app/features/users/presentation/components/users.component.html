@@ -8,7 +8,7 @@
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. nome" #input>
     </mat-form-field>
 
-    <div class="mat-elevation-z8 users__table--width">
+    <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="nome">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>

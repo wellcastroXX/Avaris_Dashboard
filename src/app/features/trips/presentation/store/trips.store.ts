@@ -45,4 +45,35 @@ export class TripsStates {
       })
     )
   }
+
+  @Action(FetchTripsSuccess)
+  public fetchToSignSuccess(
+    ctx: StateContext<ITripsStateModel>,
+    { payload }: any
+  ) {
+    let newDataList = [];
+    newDataList = payload.map((e: any) => {
+      return {
+        id: e.payload.doc.id,
+        ...e.payload.doc.data()
+      };
+    });
+    ctx.setState({
+      dataList: newDataList,
+      error: null,
+      isDataLoading: false,
+    });
+  }
+
+  @Action(FetchTripsError)
+  public fetchToSignError(
+    ctx: StateContext<ITripsStateModel>,
+    { error }: FetchTripsError
+  ) {
+    ctx.setState({
+      dataList: null,
+      error: error,
+      isDataLoading: false,
+    });
+  }
 }

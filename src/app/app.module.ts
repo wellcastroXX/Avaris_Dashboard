@@ -25,6 +25,7 @@ import { DriversRepository } from './features/drivers/domain/repositories/driver
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TripsRepository } from './features/trips/domain/repositories/trips.repository';
 import { TripsDataSource, TripsDataSourceImpl } from './features/trips/data/datasources/trips.data-source';
+import { TripsStates } from './features/trips/presentation/store/trips.store';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { TripsDataSource, TripsDataSourceImpl } from './features/trips/data/data
     NgxsModule.forRoot([
       DriversStates,
       UsersStates,
-      ToSignStates
+      ToSignStates,
+      TripsStates
     ])
   ],
   providers: [

@@ -14,7 +14,13 @@ import { OnInit, Component, ViewChild } from '@angular/core';
 })
 export class TripsListComponent implements OnInit {
   displayedColumns: string[] = [
-    'teste',
+    'id',
+    'start',
+    'end',
+    'distance',
+    'date',
+    'time',
+    'price'
   ];
   dataSource: MatTableDataSource<any>;
 
@@ -44,16 +50,18 @@ export class TripsListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+  
+  openMoreInfoTrips(id: string) {
+    
+  }
 
   private _getTripsList() {
-    this._store.dispatch(new FetchTripsList())
-
+    this._store.dispatch(new FetchTripsList());
     this._store.select(TripsStates.getTripsList).subscribe(value => {
-      console.log('trips', value);
-
       this.dataSource.data = value.dataList;
     })
   }
+
 
   // openMoreInfoDrives(id: string) {
   //   this.dataSource.data.forEach(item => {

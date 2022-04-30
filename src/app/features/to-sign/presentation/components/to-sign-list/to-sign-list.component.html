@@ -5,9 +5,9 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. nome" #input>
   </mat-form-field>
 
-  <div class="mat-elevation-z8 users__table--width">
+  <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
-      
+
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Nome</th>
         <td mat-cell *matCellDef="let row">{{row.nome}}</td>
@@ -35,15 +35,25 @@
 
       <ng-container matColumnDef="statusDaAssinatura">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Status da Assinatura</th>
-        <td class="text-align-center" mat-cell *matCellDef="let row">{{row.terms}}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">Sem dados/ carregando...</td>
-      </tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="[10, 25, 50, 75, 100]"></mat-paginator>
+        <td class="text-align-center" mat-cell *matCellDef="let row">
+          <div *ngFor="let isAvaris of row.avarispremium">
+            <span *ngIf="isAvaris.avaris; else no_content"><label
+                class="badge badge-success color-success">Ativo</label></span>
+            <ng-template #no_content>
+        <td>
+          <label class="badge badge-danger color-waiting">Inativo</label>
+        </td>
+        </ng-template>
   </div>
+  </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="4">Sem dados/ carregando...</td>
+  </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 25, 50, 75, 100]"></mat-paginator>
+</div>
 </div>

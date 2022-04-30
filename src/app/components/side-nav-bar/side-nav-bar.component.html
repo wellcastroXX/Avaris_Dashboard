@@ -1,25 +1,25 @@
 <nav class="sidebar sidebar-offcanvas nav-side" id="sidebar">
   <ul class="nav">
     <li class="nav-item nav-category">Tabelas</li>
-    <li class="nav-item">
+    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <a class="nav-link" [routerLink]="['/users-list']">
         <i class="mdi mdi-grid-large menu-icon"></i>
         <span class="menu-title">Usuarios</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <a class="nav-link" [routerLink]="['/drivers-list']">
         <i class="mdi mdi-grid-large menu-icon"></i>
         <span class="menu-title">Motoristas</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <a class="nav-link" [routerLink]="['/trips/list']">
         <i class="mdi mdi-grid-large menu-icon"></i>
         <span class="menu-title">Viagens</span>
       </a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <a class="nav-link" [routerLink]="['/to-sign/list']">
         <i class="mdi mdi-grid-large menu-icon"></i>
         <span class="menu-title">Assinaturas</span>
