@@ -21,7 +21,7 @@ export interface ITripsStateModel {
 @Injectable()
 export class TripsStates {
   constructor(
-    private _tripsListUserCase: FetchTripsListUseCase,
+    private _tripsListUserCase: FetchTripsListUseCase
   ) { }
 
   @Selector()
@@ -47,7 +47,7 @@ export class TripsStates {
   }
 
   @Action(FetchTripsSuccess)
-  public fetchToSignSuccess(
+  public fetchTripsSuccess(
     ctx: StateContext<ITripsStateModel>,
     { payload }: any
   ) {
@@ -66,7 +66,7 @@ export class TripsStates {
   }
 
   @Action(FetchTripsError)
-  public fetchToSignError(
+  public fetchTripsError(
     ctx: StateContext<ITripsStateModel>,
     { error }: FetchTripsError
   ) {

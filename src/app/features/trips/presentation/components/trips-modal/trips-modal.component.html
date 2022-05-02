@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <div>
       <img class="img-xs rounded-circle" src="../assets/images/faces/no-phofile.jpg" alt="Profile image">
-      <span class="ml-10">{{data.nome}} {{data.sobrenome}}</span>
+      <span class="ml-10">{{data.item.nome}} {{data.item.sobrenome}}</span>
     </div>
     <span (click)="closeModal()" class="material-icons button-cancel">
       cancel
@@ -10,81 +10,101 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-tab-group mat-stretch-tabs="example-stretched-tabs mat-elevation-z4">
-  <mat-tab label="DADOS GERAIS">
+  <mat-tab label="CORRIDA">
     <div class="large-size">
       <div class="driver driver__documents">
         <ul>
-          <li class="status-success" *ngIf="data.cnh && data.crlv && data.comprovante_residencia; else other_content">
-            <span class="color-grey">Status:</span> Concluído
-          </li>
-          <ng-template #other_content>
-            <li class="status-waiting">
-              <span class="color-grey">Status:</span> Pendente
-            </li>
-          </ng-template>
           <li>
-            <span class="color-grey">Data de nascimento:</span> {{data.datadenascimento}}
+            <span class="color-grey">ID:</span> {{data.item.order}}
           </li>
           <li>
-            <span class="color-grey">CPF:</span> {{data.cpf}}
+            <span class="color-grey">Origem:</span> {{data.item.startPointTitle}}
           </li>
           <li>
-            <span class="color-grey">E-mail:</span> {{data.email}}
+            <span class="color-grey">Destino:</span> {{data.item.endPointTitle}}
           </li>
           <li>
-            <span class="color-grey">Estado:</span> {{data.Estado}}
+            <span class="color-grey">Distancia:</span> {{data.item.kmRide}}
           </li>
           <li>
-            <span class="color-grey">Celular:</span> {{data.celular}}
+            <span class="color-grey">Data:</span> {{data.item.date}}
+          </li>
+          <li>
+            <span class="color-grey">Horario:</span> {{data.item.hour}}
+          </li>
+          <li>
+            <span class="color-grey">Preço:</span> {{data.item.price}}
           </li>
         </ul>
       </div>
     </div>
   </mat-tab>
-  <mat-tab label="DOCUMENTOS">
+  <mat-tab label="MOTORISTA">
     <div class="large-size">
-      <div class="no-info">
-        <span class="color-grey" *ngIf="
-          data.cnh || 
-          data.comprovante_residencia ||
-          data.crlv; else no_documents">Clique para visualizar os documentos:</span>
-        <ng-template #no_documents>
-          <span>Sem dados para exibição</span>
-        </ng-template>
-        <div *ngIf="data.cnh" class="mb-10 mt-10">
-          <a target="_blank" href="{{data.cnh}}">
-            <span>
-              CNH:
-            </span>
-            <span class="material-icons">
-              photo_library
-            </span>
-          </a>
-        </div>
-        <div *ngIf="data.comprovante_residencia" class="mb-10">
-          <a target="_blank" href="{{data.comprovante_residencia}}">
-            <span>
-              Comprovante de residência:
-            </span>
-            <span class="material-icons">
-              photo_library
-            </span>
-          </a>
-        </div>
-        <div *ngIf="data.crlv" class="mb-10">
-          <a target="_blank" href="{{data.crlv}}">
-            <span>
-              CRLV:
-            </span>
-            <span class="material-icons">
-              photo_library
-            </span>
-          </a>
-        </div>
+      <div class="driver driver__documents">
+        <ul>
+          <li>
+            <span class="color-grey">Nome:</span> {{driverSelected.nome}}
+          </li>
+          <li>
+            <span class="color-grey">Sobrenome:</span> {{driverSelected.sobrenome}}
+          </li>
+          <li>
+            <span class="color-grey">CPF:</span> {{driverSelected.cpf}}
+          </li>
+          <li>
+            <span class="color-grey">Data de nascimento:</span> {{driverSelected.datadenascimento}}
+          </li>
+          <li>
+            <span class="color-grey">Celular:</span> {{driverSelected.celular}}
+          </li>
+          <li>
+            <span class="color-grey">E-mail:</span> {{driverSelected.email}}
+          </li>
+          <li class="no-info">
+            <span class="color-grey" *ngIf="
+            driverSelected.cnh || 
+            driverSelected.comprovante_residencia ||
+            driverSelected.crlv; else no_documents">Clique para visualizar os documentos:</span>
+            <ng-template #no_documents>
+              <span>Sem dados para exibição</span>
+            </ng-template>
+            <div *ngIf="driverSelected.cnh" class="mb-10 mt-10">
+              <a target="_blank" href="{{driverSelected.cnh}}">
+                <span>
+                  CNH:
+                </span>
+                <span class="material-icons">
+                  photo_library
+                </span>
+              </a>
+            </div>
+            <div *ngIf="driverSelected.comprovante_residencia" class="mb-10">
+              <a target="_blank" href="{{driverSelected.comprovante_residencia}}">
+                <span>
+                  Comprovante de residência:
+                </span>
+                <span class="material-icons">
+                  photo_library
+                </span>
+              </a>
+            </div>
+            <div *ngIf="driverSelected.crlv" class="mb-10">
+              <a target="_blank" href="{{driverSelected.crlv}}">
+                <span>
+                  CRLV:
+                </span>
+                <span class="material-icons">
+                  photo_library
+                </span>
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </mat-tab>
-  <mat-tab class="large-size" label="ATIVIDADES">
+  <mat-tab class="large-size" label="USUARIO">
     <div class="large-size">
       <div class="no-info">
         Sem dados para exibição

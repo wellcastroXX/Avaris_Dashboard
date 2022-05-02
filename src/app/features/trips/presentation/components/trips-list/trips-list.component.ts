@@ -1,3 +1,6 @@
+import { take } from 'rxjs/operators';
+import { TripsService } from './../../services/trips.service';
+import { TripsModalComponent } from './../trips-modal/trips-modal.component';
 import { TripsStates } from './../../store/trips.store';
 import { FetchTripsList } from './../../store/trips.actions';
 import { Store } from '@ngxs/store';
@@ -13,7 +16,9 @@ import { OnInit, Component, ViewChild } from '@angular/core';
   styleUrls: ['./trips-list.component.scss']
 })
 export class TripsListComponent implements OnInit {
-  displayedColumns: string[] = [
+  public userList: any;
+  public driverList: any;
+  public displayedColumns: string[] = [
     'id',
     'start',
     'end',
@@ -22,19 +27,22 @@ export class TripsListComponent implements OnInit {
     'time',
     'price'
   ];
-  dataSource: MatTableDataSource<any>;
+  public dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
     private _dialog: MatDialog,
-    private _store: Store
+    private _store: Store,
+    private _tripsService: TripsService
   ) {
     this.dataSource = new MatTableDataSource();
   }
   ngOnInit() {
     this._getTripsList();
+    this._getUserList();
+    this._getDriverList();
   }
 
   applyFilter(event) {
@@ -50,9 +58,31 @@ export class TripsListComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-  
-  openMoreInfoTrips(id: string) {
-    
+
+  private _getUserList() {
+    this._tripsService.getUsersList()
+      .pipe(take(1))
+      .subscribe(res => {
+        this.userList = res.map((e: any) => {
+          return {
+            id: e.payload.doc.id,
+            ...e.payload.doc.data()
+          };
+        });
+      });
+  }
+
+  private _getDriverList() {
+    this._tripsService.getDriversList()
+      .pipe(take(1))
+      .subscribe(res => {
+        this.driverList = res.map((e: any) => {
+          return {
+            id: e.payload.doc.id,
+            ...e.payload.doc.data()
+          };
+        });
+      });
   }
 
   private _getTripsList() {
@@ -63,15 +93,15 @@ export class TripsListComponent implements OnInit {
   }
 
 
-  // openMoreInfoDrives(id: string) {
-  //   this.dataSource.data.forEach(item => {
-  //     if (item.id === id) {
-  //       this._dialog.open(DriversModalComponent, {
-  //         data: item,
-  //         disableClose: true,
-  //         width: '1400px'
-  //       });
-  //     }
-  //   });
-  // }
+  openMoreInfoTrips(id: string) {
+    this.dataSource.data.forEach(item => {
+      if (item.order === id) {
+        this._dialog.open(TripsModalComponent, {
+          data: { item, userList: this.userList, driverList: this.driverList },
+          disableClose: true,
+          width: '1400px'
+        });
+      }
+    });
+  }
 }

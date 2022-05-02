@@ -19,7 +19,6 @@ export class DriversModalComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _store: Store,
-    private _snackBar: MatSnackBar,
     private _dialog: MatDialog
   ) { }
 
